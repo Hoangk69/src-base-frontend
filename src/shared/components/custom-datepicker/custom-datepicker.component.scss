@@ -1,0 +1,73 @@
+.input-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .input {
+    width: calc(100% - 54px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+
+    .form-control {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .input-date-bottom {
+      position: absolute;
+      z-index: 1;
+      bottom: 3px;
+      left: 50%;
+      border: 0;
+      width: 0;
+      height: 0;
+    }
+    .input-date-top {
+      position: absolute;
+      z-index: 1;
+      top: 1px;
+      left: 50%;
+      border: 0;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .icon {
+    width: 54px;
+    height: calc(1.5em + 1.2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ced4da;
+    border-left: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #e9ecef;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #495057;
+  }
+
+  .icon-clear {
+    position: absolute;
+    top: 10px;
+    right: calc(64px);
+    z-index: 10;
+    cursor: pointer;
+    color: #c20d2b;
+  }
+
+  .err-label {
+    // position: absolute;
+    // bottom: -24px;
+    // top: 90%;
+    white-space: nowrap;
+    margin-bottom: 0;
+  }
+}

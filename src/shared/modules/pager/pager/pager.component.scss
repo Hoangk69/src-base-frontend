@@ -1,0 +1,48 @@
+$main-color:  #1e88e5;
+$main-color-light: lighten($main-color,20%);
+a {
+    transition: 0ms;
+}
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pagination>.page-item.active>a {
+    background-color: $main-color;
+    border-color: $main-color;
+    color: #fff;
+    box-shadow: 0 4px 5px 0 rgba($main-color ,.14), 0 1px 10px 0 rgba($main-color,.12), 0 2px 4px -1px rgba($main-color,.2);
+}
+.pagination>.page-item>.page-link {
+  border: 0;
+  border-radius: 30px!important;
+  transition: all .3s;
+  padding: 0px;
+  margin: 0 3px;
+  min-width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #999;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: transparent;
+  text-align: center;
+}
+.pagination>.page-item{
+  .lead,.last {
+    padding: 0px 10px;
+  }
+  cursor: pointer;
+}
+.pagination>.page-item:not(.active)>.page-link {
+  //background-color: #ddd;
+  border: 1px solid #ddd;
+}
+.pagination>.page-item:not(.active)>.page-link:hover {
+  background-color: $main-color-light;
+  border: 1px solid $main-color-light;
+  color: #fff;
+}
+
+

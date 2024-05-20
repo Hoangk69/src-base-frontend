@@ -1,0 +1,36 @@
+
+<ng-container *ngIf="total > 0">
+  <div class="select-pagesize  mb-1">
+    {{pager.currentPage}} / {{pager.totalPages}}
+    {{'shared.paging_info' | translate:{total: total} }} :
+  <span *ngFor="let size of PAGESIZES; let i = index">
+    <span *ngIf="i > 0"> | </span>
+    <a href="javascript:void(0)" (click)="changePageSize(size)" [ngClass]="{'text-danger': pageSize === size}">{{size}}</a>
+  </span>
+</div>
+<nav aria-label="Page navigation example">
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+      <a class="page-link lead" (click)="setPage(1)">先頭</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+      <a class="page-link" (click)="setPage(pager.currentPage - 1)">&lt;</a>
+    </li>
+    <li class="page-item" *ngFor="let page of pagination(pager.currentPage, pager.totalPages)" [ngClass]="{active:pager.currentPage === page}">
+      <ng-container *ngIf="page==='...'">
+        <a class="page-link" style="cursor: text;">{{page}}</a>
+      </ng-container>
+      <ng-container *ngIf="page !=='...'">
+        <a class="page-link" (click)="setPage(page)">{{page}}</a>
+      </ng-container>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a class="page-link" (click)="setPage(pager.currentPage + 1)">&gt;</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a class="page-link last" (click)="setPage(pager.totalPages)">最後</a>
+    </li>
+  </ul>
+</nav>
+</ng-container>
+

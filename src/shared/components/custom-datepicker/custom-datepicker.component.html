@@ -1,0 +1,55 @@
+<div class="input-wrap">
+  <div class="input">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="modelInput"
+      autocomplete="off"
+      (blur)="handleBlur()"
+      [ngClass]="{
+        'is-invalid': (formControl.control.invalid && isValidate) || invalid
+      }"
+      (click)="datepicker.toggle()"
+    />
+    <input
+      #datepicker="bsDatepicker"
+      type="text"
+      class="{{ placement === 'top' ? 'input-date-top' : 'input-date-bottom' }}"
+      bsDatepicker
+      placement="{{ placement }}"
+      [bsConfig]="config"
+      [(ngModel)]="modelDatepicker"
+      (bsValueChange)="onChangeDatepicker()"
+      [minDate]="minDate"
+      [maxDate]="maxDate"
+    />
+    <label
+      *ngIf="
+        (formControl.control.invalid && isValidate && modelInput !== '') ||
+        invalid
+      "
+      class="err-label error small form-text invalid-feedback"
+    >
+      {{ "message.require_date" | translate }}
+    </label>
+    <label
+      *ngIf="formControl.control.invalid && isValidate && modelInput === ''"
+      class="err-label error small form-text invalid-feedback"
+    >
+      {{ "message.require" | translate }}
+    </label>
+    <label
+      *ngIf="showNoti"
+      class="text-nowrap text-danger"
+      style="font-size: 12px"
+    >
+      {{ notiContent | translate }}
+    </label>
+  </div>
+  <div class="icon" (click)="datepicker?.toggle()">
+    <i class="feather icon-calendar"></i>
+  </div>
+  <div class="icon-clear" *ngIf="modelInput" (click)="clearDate()">
+    <i class="fa fa-times"></i>
+  </div>
+</div>
